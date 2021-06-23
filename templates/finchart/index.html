@@ -18,8 +18,6 @@
   });
 </script>
 <h1>トップページ</h1>
-
-<!-- テーブルの定義 -->
 <table id="fstatement_list" width="100%" class="table table-striped table-bordered table-hover">
   <thead>
     <tr>
@@ -33,11 +31,12 @@
     <tr class="odd gradeX text-center">
       <td class="text-center">{{ item.company}}</td>
       <td class="text-center">{{ item.fiscal_year }}</td>
-      <td><a href="">詳細へ</a></td>
+
+      <!-- hrefの内容を記載-->
+      <td><a href="{% url 'finchart:fstatement' item.pk %}">詳細へ</a></td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
-<!-- テーブルの定義　終了-->
 
 {% endblock %}

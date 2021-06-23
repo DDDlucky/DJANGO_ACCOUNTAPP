@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import generic
 from django.views.generic import TemplateView, DetailView # DetailViewを追加
 from .models import Company, Fstatement
+from django.views.generic.list import MultipleObjectMixin # この行を追加
 
 
 class IndexView(TemplateView):
@@ -16,6 +17,7 @@ class IndexView(TemplateView):
 
 class CompanyView(DetailView):
     model = Company
+    paginate_by = 4
 
     def get_context_data(self, **kwargs):
         company_name = kwargs['object'].name
@@ -25,3 +27,7 @@ class CompanyView(DetailView):
             'fstatement_list': fstatement_list,
         }
         return params
+
+# ========以下をすべて追加========
+class FstatementView(DetailView):
+    model = Fstatement

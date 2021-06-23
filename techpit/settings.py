@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'finchart'
+    'finchart',
     'django.contrib.humanize', # これを追加
 ]
 
